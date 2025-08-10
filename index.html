@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Syed Yaseen — Portfolio</title>
+<meta name="description" content="Portfolio of Syed Yaseen — Diploma Student, Computer Science Engineering, specializing in Python and Automation.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --muted: #b3b3b3;
+  --text: #ffffff;
+  --primary: #3b82f6;
+  --accent: #f97316;
+  --radius: 14px;
+  --maxw: 1100px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+/* Animated background glow */
+body::before{
+  content:"";
+  position:fixed;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background: radial-gradient(circle at 30% 30%, rgba(59,130,246,0.15), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(249,115,22,0.15), transparent 40%);
+  animation: bgMove 15s ease-in-out infinite alternate;
+  z-index:0;
+}
+@keyframes bgMove{
+  0%{transform:translate(0,0) scale(1);}
+  100%{transform:translate(-10%, -10%) scale(1.1);}
+}
+a{color:var(--primary);text-decoration:none;transition:color 0.3s}
+a:hover{color:var(--accent)}
+.container{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:var(--maxw);
+  margin:auto;
+  padding:40px 20px;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:28px;
+}
+.sidebar{
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:26px;
+  position:sticky;
+  top:28px;
+  height:fit-content;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+.avatar{
+  width:96px;height:96px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:28px;color:var(--text);
+  margin-bottom:16px;
+  box-shadow:0 0 15px var(--primary), 0 0 25px var(--accent);
+  animation: glow 3s infinite alternate;
+}
+@keyframes glow {
+  0% { box-shadow:0 0 15px var(--primary),0 0 25px var(--accent); }
+  50% { box-shadow:0 0 25px var(--primary),0 0 40px var(--accent); }
+  100% { box-shadow:0 0 15px var(--primary),0 0 25px var(--accent); }
+}
+h1{margin:0;font-size:22px}
+.muted{color:var(--muted);font-size:14px;margin-top:6px}
+.chip{
+  display:flex;align-items:center;
+  padding:10px;background:rgba(255,255,255,0.05);
+  border-radius:10px;margin-top:8px;font-size:14px
+}
+.skill-tag{
+  background:rgba(255,255,255,0.05);
+  padding:8px 10px;border-radius:10px;
+  font-size:13px;color:var(--muted);
+  display:inline-block;margin:6px 6px 0 0;
+}
+.resume-download{
+  display:block;margin-top:18px;
+  padding:10px;border-radius:10px;
+  background:var(--primary);
+  text-align:center;font-weight:600;
+  color:var(--text);
+  box-shadow:0 0 8px var(--primary);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.resume-download:hover{
+  background:var(--accent);
+  box-shadow:0 0 12px var(--accent);
+}
+.main{
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+.hero{
+  display:flex;flex-direction:column;gap:12px;margin-bottom:20px;
+}
+.hero h2{margin:0;font-size:26px;color:var(--primary)}
+.hero p{color:var(--muted)}
+.btn{
+  display:inline-flex;align-items:center;
+  padding:10px 14px;border-radius:10px;
+  background:rgba(255,255,255,0.05);
+  font-weight:600;color:var(--text);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.btn-primary{
+  background:var(--primary);
+  color:var(--text);
+  box-shadow:0 0 8px var(--primary);
+  animation: glow 3s infinite alternate;
+}
+.btn-primary:hover{
+  background:var(--accent);
+  box-shadow:0 0 12px var(--accent);
+}
+section{margin-top:30px;position:relative}
+section h3{
+  margin-bottom:12px;
+  padding-left:12px;
+  border-left:4px solid var(--primary);
+}
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:18px;border-radius:12px;
+}
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;margin-top:12px;
+}
+.project{
+  padding:14px;border-radius:12px;
+  background:rgba(255,255,255,0.03);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.project:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 15px var(--primary), 0 0 25px var(--accent);
+}
+footer{
+  margin-top:26px;color:var(--muted);
+  font-size:13px;text-align:center;
+}
+@media(max-width:900px){
+  .container{grid-template-columns:1fr}
+}
+/* Fade-up animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary);
+  color: var(--text);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--primary);
+  animation: glow 3s infinite alternate;
+  display: none;
+  z-index: 10;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+#backToTop:hover {
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar fade-up">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="avatar">SY</div>
+      <div>
+        <h1>Syed Yaseen</h1>
+        <div class="muted">Diploma — Computer Science Engineering</div>
+      </div>
+    </div>
+    <div class="chip">📍 Hyderabad, Telangana</div>
+    <a class="chip" href="mailto:sdyasin2932@gmail.com">✉ sdyasin2932@gmail.com</a>
+    <a class="chip" href="tel:+918341804686">☎ +91 83418 04686</a>
+    <a class="chip" href="https://linkedin.com/in/sd-yaseen-2932Y" target="_blank">LinkedIn ↗</a>
+    <a class="chip" href="https://github.com/syed-yaseen007" target="_blank">GitHub ↗</a>
+
+    <div style="margin-top:18px;font-weight:700">Technical Skills</div>
+    <div>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Web Scraping</span>
+      <span class="skill-tag">Automation</span>
+      <span class="skill-tag">Scripting</span>
+    </div>
+    <div style="margin-top:12px;font-weight:700">Soft Skills</div>
+    <div>
+      <span class="skill-tag">Communication</span>
+      <span class="skill-tag">Teamwork</span>
+      <span class="skill-tag">Problem-solving</span>
+    </div>
+
+    <!-- Updated Resume Download -->
+    <a class="resume-download" href="Yaseens-Resume.pdf" download>Download Resume (PDF)</a>
+  </aside>
+
+  <!-- Main -->
+  <main class="main fade-up">
+    <!-- Hero -->
+    <div class="hero fade-up">
+      <h2>Hi, I’m Syed</h2>
+      <p>A passionate developer focused on Python automation, web scraping, and creating tools that make work faster and smarter.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="mailto:sdyasin2932@gmail.com">Contact Me</a>
+        <a class="btn" href="#projects">View Projects</a>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section class="card fade-up">
+      <h3>About</h3>
+      <p>I am currently pursuing a Diploma in Computer Science at Brilliant Institute of Technology, Hyderabad. My work includes building Python tools, automating workflows, and developing web scrapers for real-world tasks.</p>
+      <p>I believe in clean code, practical solutions, and constant learning. I’m looking for opportunities to apply my skills in professional projects and internships.</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="fade-up">
+      <h3>Projects</h3>
+      <div class="projects-grid">
+        <div class="project fade-up">
+          <h4 style="color:var(--primary)">Facebook Video Downloader</h4>
+          <p>Python tool using requests, BeautifulSoup, and youtube_dl to download Facebook videos quickly and efficiently.</p>
+        </div>
+        <div class="project fade-up">
+          <h4 style="color:var(--accent)">Automation Script Suite</h4>
+          <p>Collection of scripts for file management, text processing, and repetitive task automation.</p>
+        </div>
+        <div class="project fade-up">
+          <h4 style="color:var(--primary)">Data Extraction Tool</h4>
+          <p>Custom scraper to collect structured data from public websites for analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="card fade-up">
+      <h3>Education</h3>
+      <p><strong>Diploma in Computer Science Engineering</strong> — Brilliant Institute of Technology, Hyderabad</p>
+      <p>Currently in 3rd Year. Coursework includes programming, database management, and network fundamentals.</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="card fade-up">
+      <h3>Get in Touch</h3>
+      <p>If you’d like to work together or discuss an opportunity, feel free to reach out via email or phone.</p>
+      <a class="btn btn-primary" href="mailto:sdyasin2932@gmail.com">Email Me</a>
+    </section>
+
+    <footer class="fade-up">
+      © <span id="year"></span> Syed Yaseen — Built with care
+    </footer>
+  </main>
+</div>
+
+<!-- Back to Top Button -->
+<button id="backToTop" title="Back to top">↑</button>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Fade-up animation trigger
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Back to top button logic
+const backToTopBtn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+});
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
+
