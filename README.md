@@ -4,7 +4,7 @@ Welcome to my personal portfolio!
 This project showcases my skills, projects, and experience as a [Your Role — e.g., Web Developer / Designer / Data Analyst].
 
 ## 🌐 Live Demo
-[View Portfolio](https://your-live-site-link.com)  
+https://my-portfolio-omega-opal-84.vercel.app/  
 
 ## 📜 Features
 - Fully responsive design
